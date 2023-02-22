@@ -21,7 +21,7 @@
 #include "musical_notes.h"
 
 #if __has_include("user_song_list.h")
-.#    include "user_song_list.h"
+#    include "user_song_list.h"
 #endif // if file exists
 
 #define NO_SOUND
@@ -273,6 +273,3 @@
 #ifndef LP_NUMB
 #    define LP_NUMB
 #endif
-
-#define LAYER_UP_SOUND E__NOTE(_E5), E__NOTE(_GS5), E__NOTE(_B5),
-#define LAYER_DOWN_SOUND E__NOTE(_B5), E__NOTE(_GS5), E__NOTE(_E5),

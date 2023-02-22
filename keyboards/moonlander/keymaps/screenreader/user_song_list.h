@@ -1,0 +1,2 @@
+#define LAYER_UP_SOUND E__NOTE(_E5), E__NOTE(_GS5), E__NOTE(_B5),
+#define LAYER_DOWN_SOUND E__NOTE(_B5), E__NOTE(_GS5), E__NOTE(_E5),
