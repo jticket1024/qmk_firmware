@@ -26,9 +26,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TD(DANCE_0),                                    TD(DANCE_2),    KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
     KC_DELETE,      KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           MT(MOD_LALT, KC_ESCAPE),                                TG(2),          KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCOLON,           KC_BSLASH,
     TD(DANCE_1),    KC_A,           KC_R,           KC_S,           KC_T,           KC_G,           DF(1),                                                                        KC_MEH,         KC_K,           KC_N,           KC_E,           KC_I,           LT(3,KC_O),MT(MOD_LGUI, KC_QUOTE),
-    KC_LSHIFT,      MT(MOD_LCTL, KC_Z),KC_X,           KC_C,           KC_D,           KC_V,                                           KC_M,           KC_H,           KC_COMMA,       KC_DOT,         MT(MOD_RCTL, KC_SLASH),KC_RSHIFT,
-    LT(2,KC_GRAVE), KC_LALT,      KC_INSERT,KC_LEFT,        KC_RIGHT,       MT(MOD_LALT, KC_APPLICATION),                                                                                                MT(MOD_LCTL, KC_ESCAPE),KC_UP,          KC_DOWN,        KC_LBRACKET,    KC_RBRACKET,    MO(2),
-    KC_SPACE,       KC_BSPACE,      KC_LGUI,                        KC_LALT,        KC_TAB,         KC_ENTER
+    KC_LSHIFT,      MT(MOD_LGUI, KC_Z),KC_X,           KC_C,           KC_D,           KC_V,                                           KC_M,           KC_H,           KC_COMMA,       KC_DOT,         MT(MOD_RGUI, KC_SLASH),KC_RSHIFT,
+    LT(2,KC_GRAVE), KC_LCTL,      KC_LALT,KC_LEFT,        KC_RIGHT,       MT(MOD_LGUI, KC_APPLICATION),                                                                                                MT(MOD_RALT, KC_ESCAPE),KC_UP,          KC_DOWN,        KC_LBRACKET,    KC_RBRACKET,    MO(2),
+    KC_SPACE,       KC_BSPACE,      KC_INSERT,                        KC_LALT,        KC_TAB,         KC_ENTER
   ),
   [1] = LAYOUT_moonlander(
     KC_TRANSPARENT,       KC_TRANSPARENT,           KC_TRANSPARENT,           KC_TRANSPARENT,           KC_TRANSPARENT,           KC_TRANSPARENT,           KC_TRANSPARENT,                                    KC_TRANSPARENT,    KC_TRANSPARENT,           KC_TRANSPARENT,           KC_TRANSPARENT,           KC_TRANSPARENT,           KC_TRANSPARENT,           KC_TRANSPARENT,       
@@ -172,7 +172,7 @@ void dance_1_finished(qk_tap_dance_state_t *state, void *user_data) {
     dance_state[1].step = dance_step(state);
     switch (dance_state[1].step) {
         case SINGLE_TAP: register_code16(KC_BSPACE); break;
-        case SINGLE_HOLD: register_code16(KC_INSERT); break;
+        case SINGLE_HOLD: register_code16(KC_CAPS_LOCK); break;
         case DOUBLE_TAP: register_code16(KC_BSPACE); register_code16(KC_BSPACE); break;
         case DOUBLE_SINGLE_TAP: tap_code16(KC_BSPACE); register_code16(KC_BSPACE);
     }
@@ -182,7 +182,7 @@ void dance_1_reset(qk_tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[1].step) {
         case SINGLE_TAP: unregister_code16(KC_BSPACE); break;
-        case SINGLE_HOLD: unregister_code16(KC_INSERT); break;
+        case SINGLE_HOLD: unregister_code16(KC_CAPS_LOCK); break;
         case DOUBLE_TAP: unregister_code16(KC_BSPACE); break;
         case DOUBLE_SINGLE_TAP: unregister_code16(KC_BSPACE); break;
     }
